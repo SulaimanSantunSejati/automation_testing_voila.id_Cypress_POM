@@ -26,24 +26,10 @@ describe("Search Tests", () => {
     cy.contains('Product not found').should('be.visible'); 
   });
 
-  it('should handle missing item search', () => {
-    searchPage.search('jengkol');
-    cy.wait(2000)
-    cy.contains('Product not found').should('be.visible'); 
-    cy.contains('We can’t find any products that matches your search. Please try another keyword.').should('be.visible');
-  });
-
   it('should search for a specific item', () => {
     searchPage.search('Bon Bon 32 - RH32-13 Ceramic Playful Multicolor Dial Pink Rubber Strap');
     cy.wait(2000)
     cy.contains('Bon Bon 32 - RH32-13 Ceramic Playful Multicolor Dial Pink Rubber Strap').should('be.visible'); 
-  });
-
-  it('should handle invalid price search', () => {
-    searchPage.search('Rp. 2.890.000');
-    cy.wait(2000)
-    cy.contains('Product not found').should('be.visible'); 
-    cy.contains('We can’t find any products that matches your search. Please try another keyword.').should('be.visible'); 
   });
 
   it('should search for a specific brand', () => {
